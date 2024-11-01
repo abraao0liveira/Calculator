@@ -21,7 +21,18 @@
       Console.WriteLine("5 - Exit");
 
       Console.WriteLine("--------------------");
-      short option = short.Parse(Console.ReadLine() ?? "0");
+
+      short option = 0;
+      try
+      {
+        option = short.Parse(Console.ReadLine() ?? "0");
+      }
+      catch (FormatException)
+      {
+        Console.WriteLine("Invalid option!");
+        Console.ReadKey();
+        Menu();
+      }
 
       switch (option)
       {
@@ -63,34 +74,77 @@
       Console.Clear(); // Clear the console
 
       Console.WriteLine("Enter the first number:");
-      float num01 = Convert.ToSingle(Console.ReadLine());
+      float num01 = 0.0f;
+
+      try
+      {
+        num01 = Convert.ToSingle(Console.ReadLine());
+      }
+      catch (FormatException)
+      {
+        Console.WriteLine("Invalid number!");
+        Console.ReadKey();
+        Sum();
+      }
 
       Console.WriteLine("Enter the second number:");
-      float num02 = Convert.ToSingle(Console.ReadLine());
+      float num02 = 0.0f;
+
+      try
+      {
+        num02 = Convert.ToSingle(Console.ReadLine());
+      }
+      catch (FormatException)
+      {
+        Console.WriteLine("Invalid number!");
+        Console.ReadKey();
+        Sum();
+      }
 
       float result = num01 + num02;
-
       Console.WriteLine($"The result is: {result}!"); // Interpolation
       //Console.WriteLine("The result is:" + result + "!"); // Concatenation
-      Console.ReadKey(); // Precionar qualquer tecla para continuar
 
+      Console.ReadKey(); // Precionar qualquer tecla para continuar
       Menu();
     }
 
     static void Subtract()
     {
       Console.Clear();
+
       Console.WriteLine("Enter the first number:");
-      float num01 = Convert.ToSingle(Console.ReadLine());
+      float num01 = 0.0f;
+
+      try
+      {
+        num01 = Convert.ToSingle(Console.ReadLine());
+      }
+      catch (FormatException)
+      {
+        Console.WriteLine("Invalid number!");
+        Console.ReadKey();
+        Subtract();
+      }
 
       Console.WriteLine("Enter the second number:");
-      float num02 = Convert.ToSingle(Console.ReadLine());
+      float num02 = 0.0f;
+
+      try
+      {
+        num02 = Convert.ToSingle(Console.ReadLine());
+      }
+      catch (FormatException)
+      {
+        Console.WriteLine("Invalid number!");
+        Console.ReadKey();
+        Subtract();
+      }
 
       float result = num01 - num02;
-
       Console.WriteLine($"The result is: {result}!");
-      Console.ReadKey();
 
+      Console.ReadKey();
       Menu();
     }
 
@@ -99,16 +153,37 @@
       Console.Clear();
 
       Console.WriteLine("Enter the first number:");
-      float num01 = Convert.ToSingle(Console.ReadLine());
+      float num01 = 0.0f;
+
+      try
+      {
+        num01 = Convert.ToSingle(Console.ReadLine());
+      }
+      catch (FormatException)
+      {
+        Console.WriteLine("Invalid number!");
+        Console.ReadKey();
+        Multiply();
+      }
 
       Console.WriteLine("Enter the second number:");
-      float num02 = Convert.ToSingle(Console.ReadLine());
+      float num02 = 0.0f;
+
+      try
+      {
+        num02 = Convert.ToSingle(Console.ReadLine());
+      }
+      catch (FormatException)
+      {
+        Console.WriteLine("Invalid number!");
+        Console.ReadKey();
+        Multiply();
+      }
 
       float result = num01 * num02;
-
       Console.WriteLine($"The result is: {result}!");
-      Console.ReadKey();
 
+      Console.ReadKey();
       Menu();
     }
 
@@ -117,10 +192,32 @@
       Console.Clear();
 
       Console.WriteLine("Enter the first number:");
-      float num01 = Convert.ToSingle(Console.ReadLine());
+      float num01 = 0.0f;
+
+      try
+      {
+        num01 = Convert.ToSingle(Console.ReadLine());
+      }
+      catch (FormatException)
+      {
+        Console.WriteLine("Invalid number!");
+        Console.ReadKey();
+        Divide();
+      }
 
       Console.WriteLine("Enter the second number:");
-      float num02 = Convert.ToSingle(Console.ReadLine());
+      float num02 = 0.0f;
+
+      try
+      {
+        num02 = Convert.ToSingle(Console.ReadLine());
+      }
+      catch (FormatException)
+      {
+        Console.WriteLine("Invalid number!");
+        Console.ReadKey();
+        Divide();
+      }
 
       if (num02 == 0)
       {
@@ -133,14 +230,15 @@
         float result = num01 / num02;
         Console.WriteLine($"The result is: {result}!");
       }
-      Console.ReadKey();
 
+      Console.ReadKey();
       Menu();
     }
 
     static void AppExit()
     {
       Console.Clear();
+
       Console.WriteLine("Thank you for using our services!");
       Environment.Exit(0); // Close the application
     }
