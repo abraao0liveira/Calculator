@@ -33,6 +33,12 @@
         Console.ReadKey();
         Menu();
       }
+      catch (Exception)
+      {
+        Console.WriteLine("An error occurred!");
+        Console.ReadKey();
+        Menu();
+      }
 
       switch (option)
       {
